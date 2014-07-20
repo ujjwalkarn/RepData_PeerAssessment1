@@ -3,9 +3,20 @@
 
 ## Loading and preprocessing the data
 
+```{r,echo=TRUE}
+k<-read.csv("activity.csv")
+```
 
 
 ## What is mean total number of steps taken per day?
+```{r,echo=TRUE}
+countSteps <- aggregate(steps ~ date, k, sum)
+hist(countSteps$steps,plot=TRUE,xlab = "Steps",ylab='Count', main = "Histogram of Steps per Day ",breaks = 20)
+meansteps<-mean(countSteps$steps,na.rm=TRUE)
+meansteps
+medsteps<-median(countSteps$steps,na.rm=TRUE)
+medsteps
+```
 
 
 
